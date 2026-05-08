@@ -1,0 +1,32 @@
+# Create .gitignore
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+
+# Virtual environment
+medbot_env/
+venv/
+env/
+
+# Model files (large binaries)
+model/model.pth
+model/model_data.pkl
+
+# Data files (from Kaggle - user downloads separately)
+data/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+EOF
