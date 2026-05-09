@@ -10,7 +10,13 @@ severity assessments, and precautions.
 
 ---
 
-## 🎯 Features
+## � Live Demo
+
+Try the chatbot live: **[https://mediscan-ayxg.onrender.com/](https://mediscan-ayxg.onrender.com/)**
+
+---
+
+## �🎯 Features
 
 - **Natural Language Input** — type symptoms conversationally
 - **Fuzzy Symptom Matching** — handles typos and alternate phrasings

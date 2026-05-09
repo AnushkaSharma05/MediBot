@@ -11,10 +11,7 @@ __pycache__/
 medbot_env/
 venv/
 env/
-
-# Model files (large binaries)
-model/model.pth
-model/model_data.pkl
+model/
 
 # Data files (from Kaggle - user downloads separately)
 data/
