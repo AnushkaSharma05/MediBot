@@ -1,4 +1,8 @@
 # src/train.py
+import os
+# Workaround for macOS OpenMP runtime conflicts (PyTorch aborts with exit code 134).
+os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
+
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, random_split

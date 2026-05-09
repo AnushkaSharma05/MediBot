@@ -1,8 +1,13 @@
 # app.py
+import os
+# Workaround for macOS OpenMP runtime conflicts (common with PyTorch + Conda/Brew).
+# Must be set before importing torch (directly or indirectly).
+os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
+
 from unittest import result
 
 from flask import Flask, request, jsonify, render_template
-import sys, os
+import sys
 sys.path.append('.')
 
 from src.inference import load_model_and_vocab, predict
@@ -153,6 +158,18 @@ def chat():
     # ── Was anything new added this message? ──────────
     newly_added = [s for s in new_symptoms
                    if s not in remembered_symptoms]
+    
+    # ── Require at least 2 symptoms ───────────────────────
+    if len(all_symptoms) < 2:
+        return jsonify({
+        "type"   : "low_confidence",
+        "message": "I need at least 2 symptoms to make a reliable diagnosis.",
+        "disease"       : disease,
+        "confidence"    : confidence,
+        "top3"          : top3,
+        "all_symptoms"  : all_symptoms,
+        "newly_added"   : newly_added
+    })
 
     # ── Low confidence → ask for more ─────────────────
     if confidence < config.CONFIDENCE_THRESHOLD:

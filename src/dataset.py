@@ -1,4 +1,8 @@
 # src/dataset.py
+import os
+# Workaround for macOS OpenMP runtime conflicts (PyTorch aborts with exit code 134).
+os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
+
 import torch
 from torch.utils.data import Dataset
 import sys, os

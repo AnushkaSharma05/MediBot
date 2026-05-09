@@ -4,7 +4,8 @@ import torch
 import pickle
 import difflib
 import pandas as pd
-import os, sys
+import sys
+import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import config

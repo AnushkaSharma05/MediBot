@@ -1,7 +1,11 @@
 # src/model.py
+import os
+# Workaround for macOS OpenMP runtime conflicts (PyTorch aborts with exit code 134).
+os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
+
 import torch
 import torch.nn as nn
-import sys, os
+import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import config
 
