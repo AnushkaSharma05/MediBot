@@ -53,6 +53,7 @@ Flask API → Chat UI Response
 ---
 
 ## 📁 Project Structure
+'''bash
 medical_chatbot/
 │
 ├── data/
@@ -80,7 +81,7 @@ medical_chatbot/
 ├── config.py                     # Hyperparameters and paths
 ├── requirements.txt
 └── README.md
-
+'''
 ---
 
 ## 🧠 Model Architecture
